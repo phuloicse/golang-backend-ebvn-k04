@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	"github.com/phuloicse/golang-backend-ebvn-k04/day-1/internal/api"
 	"github.com/phuloicse/golang-backend-ebvn-k04/day-1/internal/config"
 )
@@ -14,13 +12,13 @@ import (
 func main() {
 	cfg, err := config.NewConfig()
 	if err != nil {
-		log.Fatalf("faile to lead config: %v ", err)
+		panic(err)
 	}
 
 	router := api.SetupRouter(cfg)
 
 	if err := router.Run(":" + cfg.Port); err != nil {
-		log.Fatalf("faile to start server: %v ", err)
+		panic(err)
 	}
 
 }

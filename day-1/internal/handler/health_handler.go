@@ -24,7 +24,7 @@ func NewHealthHandler(healthService service.HealthService) *HealthHandler {
 // @Tags health
 // @Produce json
 // @Success 200 {object} model.HealthResponse
-// @Router /health [get]
+// @Router /health-check [get]
 func (h *HealthHandler) HealthCheck(c *gin.Context) {
 	result := h.healthService.GetHealthStatus(c.Request.Context())
 

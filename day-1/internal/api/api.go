@@ -18,7 +18,7 @@ func SetupRouter(cfg *config.Config) *gin.Engine {
 	healthService := service.NewHealthService(cfg.ServiceName, cfg.InstanceID)
 	healthHandler := handler.NewHealthHandler(healthService)
 
-	router.GET("/health", healthHandler.HealthCheck)
+	router.GET("/health-check", healthHandler.HealthCheck)
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	return router
